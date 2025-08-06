@@ -1,6 +1,6 @@
-💻 Simulador de Gestión de Procesos en Memoria RAM
+#💻 Simulador de Gestión de Procesos en Memoria RAM
 
-📝 Descripción del Proyecto
+##📝 Descripción del Proyecto
 Este proyecto es un simulador interactivo de gestión de procesos en un sistema operativo con memoria RAM limitada. Su objetivo principal es demostrar cómo un sistema operativo maneja la asignación de memoria, la ejecución concurrente de procesos y la gestión de una cola de espera cuando la memoria disponible es insuficiente.
 
 El simulador permite a los usuarios:
@@ -15,7 +15,7 @@ Ver la liberación automática de memoria cuando un proceso finaliza.
 
 Monitorear el estado actual de la memoria RAM (disponible y ocupada) y la lista de procesos en ejecución y en cola.
 
-🚀 Tecnologías Implementadas
+##🚀 Tecnologías Implementadas
 Este simulador ha sido desarrollado utilizando las siguientes tecnologías web:
 
 Lenguajes de Programación:
