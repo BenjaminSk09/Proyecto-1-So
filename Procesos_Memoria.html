@@ -1,0 +1,93 @@
+<!-- El siguiente codigo es un Simulador de Gestión de Procesos en Memoria -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Gestión de Procesos</title>
+    <!-- Etiqueta para llamar a tailwind y aplicar un css directamente desde las etiquetas de html, al ser un proyecto pequeño
+     Solo llame a el cdn de tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Procesos.Css">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Contenedor principal del simulador -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 lg:p-12 w-full max-w-4xl">
+
+        <!-- Título y descripción -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Simulador de Gestión de Procesos</h1>
+            <p class="text-gray-500">Gestión de memoria RAM en un sistema operativo simulado.</p>
+        </div>
+
+        <!-- Formulario para crear nuevos procesos -->
+        <div class="mb-8 p-6 bg-blue-50 border-blue-200 border rounded-xl shadow-inner">
+            <h2 class="text-xl font-semibold text-blue-700 mb-4">Crear Nuevo Proceso</h2>
+            <form id="process-form" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <div class="col-span-1 md:col-span-1">
+                    <label for="process-name" class="block text-sm font-medium text-gray-700">Nombre del Proceso</label>
+                    <input type="text" id="process-name" placeholder="Ej: Navegador"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                </div>
+                <div class="col-span-1">
+                    <label for="process-memory" class="block text-sm font-medium text-gray-700">Memoria (MB)</label>
+                    <input type="number" id="process-memory" value="128" min="1" max="1024" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                </div>
+                <div class="col-span-1">
+                    <label for="process-duration" class="block text-sm font-medium text-gray-700">Duración (seg)</label>
+                    <input type="number" id="process-duration" value="10" min="1" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+                </div>
+                <div class="col-span-1">
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-blue-700 transition-colors shadow-lg">Agregar
+                        Proceso</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Dashboard de estado del sistema -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Estado de la memoria RAM -->
+            <div class="p-6 bg-green-50 border-green-200 border rounded-xl shadow-inner col-span-1 lg:col-span-1">
+                <h2 class="text-xl font-semibold text-green-700 mb-4">Estado de la Memoria RAM</h2>
+                <div id="ram-status" class="text-lg font-mono text-green-800">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                        <span>Cargando...</span>
+                    </div>
+                </div>
+                <!-- Barra de progreso para la RAM -->
+                <div class="mt-4 w-full h-8 bg-gray-200 rounded-full overflow-hidden">
+                    <div id="ram-bar" class="h-full bg-green-500 transition-all duration-500 ease-in-out"
+                        style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Procesos en Ejecución -->
+            <div class="p-6 bg-red-50 border-red-200 border rounded-xl shadow-inner col-span-1 lg:col-span-1">
+                <h2 class="text-xl font-semibold text-red-700 mb-4">Procesos en Ejecución</h2>
+                <div id="running-processes" class="space-y-4">
+                    <p class="text-gray-500">No hay procesos en ejecución.</p>
+                </div>
+            </div>
+
+            <!-- Cola de Espera -->
+            <div class="p-6 bg-yellow-50 border-yellow-200 border rounded-xl shadow-inner col-span-1 lg:col-span-1">
+                <h2 class="text-xl font-semibold text-yellow-700 mb-4">Cola de Espera</h2>
+                <div id="waiting-queue" class="space-y-4">
+                    <p class="text-gray-500">La cola de espera está vacía.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="Procesos.js"></script>
+</body>
+
+</html>
